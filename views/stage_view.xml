@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
 
+<odoo>
 
     <record id="view_stage_form" model="ir.ui.view">
         <field name="name">gestion.stage.form</field>
@@ -8,6 +8,11 @@
         <field name="arch" type="xml">
             <form>
             <header>
+                <button 
+                    name="action_sauvegarder_stage" 
+                    type="object" 
+                    string="Enregistrer" 
+                    class="btn-primary"/> 
                 <field 
                         name="state" 
                         widget="statusbar"
@@ -42,6 +47,16 @@
                                 </tree>
                             </field>
                         </page>
+                        <page string="Tâches">
+                                <field name="tache_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="date_debut"/>
+                                        <field name="date_fin"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
                     </notebook>
                 </sheet>
             </form>

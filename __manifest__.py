@@ -21,6 +21,7 @@
         'security/ir.model.access.csv',
         'views/stage_view.xml',
         'views/planification_view.xml',
+        'views/tache_view.xml',
     ],
 
 

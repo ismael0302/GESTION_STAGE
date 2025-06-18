@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tache_form" model="ir.ui.view">
+        <field name="name">gestion.tache.form</field>
+        <field name="model">gestion.tache</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button 
+                        name="action_sauvegarder_stage" 
+                        type="object" 
+                        string="Enregistrer" 
+                        class="btn-primary"/> 
+                </header>
+                <sheet>
+                    <group col = "4">
+                        <group colspan ="2">
+                            <field name="name"/>
+                        <field name="description"/>
+                        </group>
+
+                        <group colspan ="2">
+                            <field name="stage_id"/>
+                            <field name="date_debut"/>
+                            <field name="date_fin"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tache_tree" model="ir.ui.view">
+        <field name="name">gestion.tache.tree</field>
+        <field name="model">gestion.tache</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="stage_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_tache" model="ir.actions.act_window">
+        <field name="name">Tâches</field>
+        <field name="res_model">gestion.tache</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_tache" name="Tâches" parent="menu_stage_root" action="action_tache"/>
+
+</odoo>

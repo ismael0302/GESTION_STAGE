@@ -6,6 +6,13 @@
         <field name="model">gestion.planification</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button 
+                        name="action_sauvegarder_stage" 
+                        type="object" 
+                        string="Enregistrer" 
+                        class="btn-primary"/>
+                </header>
                 <sheet>
                     <group col = "4" >
                     <group colspan = "2">

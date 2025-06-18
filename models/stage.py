@@ -56,5 +56,28 @@ class Stage(models.Model):
         string="Tuteur en entreprise",
         help="Employé de l'entreprise qui encadre le stagiaire")
     
-    planification_ids = fields.One2many('gestion.planification', 'stage_id', string="Planifications")
-    stage_id = fields.Many2one('gestion.stage', string="Stage")
+    planification_ids = fields.One2many(
+        'gestion.planification', 
+        'stage_id', 
+        string="Planifications")
+    
+    stage_id = fields.Many2one(
+        'gestion.stage', 
+        string="Stage")
+    
+    tache_ids = fields.One2many(
+        'gestion.tache', 
+        'stage_id', string="Tâches")
+    
+    # action du boutons save  
+    def action_sauvegarder_stage(self):
+        # Par défaut, on suppose que l'utilisateur a déjà cliqué "Créer"
+        # On peut ici faire des vérifications supplémentaires
+        if not self.name:
+            raise UserError("Le nom du stage est obligatoire.")
+        # Tu peux aussi lancer d'autres actions ici si nécessaire
+        return True
+
+
+
+
