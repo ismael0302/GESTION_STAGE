@@ -20,8 +20,10 @@
     'data': [
         'security/ir.model.access.csv',
         'views/stage_view.xml',
+        'views/planification_view.xml',
     ],
-    
+
+
     'installable': True,
     'application': True,
 }

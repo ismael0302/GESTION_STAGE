@@ -55,3 +55,6 @@ class Stage(models.Model):
         'hr.employee',
         string="Tuteur en entreprise",
         help="Employé de l'entreprise qui encadre le stagiaire")
+    
+    planification_ids = fields.One2many('gestion.planification', 'stage_id', string="Planifications")
+    stage_id = fields.Many2one('gestion.stage', string="Stage")

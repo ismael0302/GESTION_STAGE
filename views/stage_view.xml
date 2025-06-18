@@ -30,8 +30,19 @@
                             <field name="date_debut"/>
                             <field name="date_fin"/>
                         </group>
-
                     </group>
+                    <notebook>
+                        <page string="Planifications">
+                            <field name="planification_ids">
+                                <tree editable="bottom">
+                                    <field name="tutor"/>
+                                    <field name="date_debut"/>
+                                    <field name="date_fin"/>
+                                    <field name="taches"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
