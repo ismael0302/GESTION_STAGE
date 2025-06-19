@@ -22,6 +22,7 @@
         'views/stage_view.xml',
         'views/planification_view.xml',
         'views/tache_view.xml',
+        'views/suivi_view.xml',
     ],
 
 

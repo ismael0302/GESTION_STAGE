@@ -69,6 +69,11 @@ class Stage(models.Model):
         'gestion.tache', 
         'stage_id', string="Tâches")
     
+    suivi_ids = fields.One2many(
+        'gestion.suivi', 'stage_id', 
+        string="Suivis")
+
+    
     # action du boutons save  
     def action_sauvegarder_stage(self):
         # Par défaut, on suppose que l'utilisateur a déjà cliqué "Créer"

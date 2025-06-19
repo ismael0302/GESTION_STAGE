@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_suivi_form" model="ir.ui.view">
+        <field name="name">gestion.suivi.form</field>
+        <field name="model">gestion.suivi</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="date_suivi"/>
+                        <field name="commentaire"/>
+                        <field name="evaluation"/>
+                        <field name="stage_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_suivi_tree" model="ir.ui.view">
+        <field name="name">gestion.suivi.tree</field>
+        <field name="model">gestion.suivi</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date_suivi"/>
+                <field name="stage_id"/>
+                <field name="evaluation"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_suivi" model="ir.actions.act_window">
+        <field name="name">Suivis</field>
+        <field name="res_model">gestion.suivi</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_suivi" name="Suivis de stage" parent="menu_stage_root" action="action_suivi"/>
+</odoo>
+
