@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="attestation_stage_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2 style="text-align: center;">ATTESTATION DE FIN DE STAGE</h2>
+                    <p>Nous soussignés, <b>OptiVision SARL</b>, attestons que :</p>
+                    <p><strong>Nom du stagiaire :</strong> <t t-esc="doc.nom"/></p>
+                    <p><strong>Période :</strong> du <t t-esc="doc.date_debut"/> au <t t-esc="doc.date_fin"/></p>
+                    <p><strong>Tuteur :</strong> <t t-esc="doc.tuteur_id.name"/></p>
+                    <p><strong>Lieu :</strong> Yaoundé</p>
+
+                    <p>Le stagiaire a effectué son stage avec assiduité et professionnalisme.</p>
+                    <br/><br/>
+                    <p>Fait à Yaoundé, le <t t-esc="doc.date_fin"/>.</p>
+                    <p><i>Signature de la direction</i></p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

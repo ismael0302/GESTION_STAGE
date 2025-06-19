@@ -1,0 +1,34 @@
+<odoo>
+    <template id="template_stage_dashboard" name="Tableau de bord des stages">
+        <t t-call="web.layout">
+            <div class="oe_structure">
+                <div class="container mt-4">
+                    <h2>📊 Tableau de bord des stages</h2>
+                    <div class="row">
+                        <div class="col-sm-3"><div class="alert alert-primary"> cours : <strong><t t-esc="en_cours"/></strong></div></div>
+                        <div class="col-sm-3"><div class="alert alert-info">Total stages : <strong><t t-esc="total"/></strong></div></div>
+                        <div class="col-sm-3"><div class="alert alert-warning">En attente : <strong><t t-esc="en_attente"/></strong></div></div>
+                        <div class="col-sm-3"><div class="alert alert-success">Acceptés : <strong><t t-esc="accepte"/></strong></div></div>
+                        <div class="col-sm-3"><div class="alert alert-danger">Rejetés : <strong><t t-esc="rejete"/></strong></div></div>
+                    </div>
+
+                    <h4 class="mt-4">🏢 Répartition des stagiaires par service</h4>
+                        <ul>
+                            <t t-foreach="repartition_service" t-as="service">
+                                <li><strong><t t-esc="service['service_id'][1]"/></strong> : <t t-esc="service['__count']"/> stagiaire(s)</li>
+                            </t>
+                        </ul>
+
+                    <h4 class="mt-4">🧑‍🏫 Stages par tuteur</h4>
+                    <ul>
+                        <t t-foreach="stages_par_tuteur" t-as="ligne">
+                            <li>
+                                <t t-esc="ligne['tuteur_id'][1]"/> : <strong><t t-esc="ligne['__count']"/></strong> stage(s)
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

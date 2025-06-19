@@ -1,0 +1,14 @@
+
+<odoo>
+    <record id="action_stage_dashboard" model="ir.actions.act_url">
+        <field name="name">Tableau de bord</field>
+        <field name="url">/gestion_stage/dashboard</field>
+        <field name="target">self</field>
+    </record>
+
+    <menuitem id="menu_stage_dashboard"
+                name="Tableau de bord"
+                parent="menu_stage_root"
+                action="action_stage_dashboard"/>
+</odoo>
+

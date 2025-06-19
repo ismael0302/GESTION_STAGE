@@ -13,6 +13,10 @@
                     type="object" 
                     string="Enregistrer" 
                     class="btn-primary"/> 
+                <button name="print_attestation_stage" 
+                type="object" 
+                string="Imprimer Attestation" 
+                class="btn-primary"/>
                 <field 
                         name="state" 
                         widget="statusbar"
@@ -92,7 +96,19 @@
                                 </field>
                             </page>
 
-
+                            <page string="Grille de notation">
+                                <field name="grille_id">
+                                    <tree editable="bottom">
+                                        <field name="ponctualite"/>
+                                        <field name="autonomie"/>
+                                        <field name="communication"/>
+                                        <field name="initiative"/>
+                                        <field name="qualite_travail"/>
+                                        <field name="note_totale"/>
+                                    </tree>
+                                </field>
+                            </page>
+s
                     </notebook>
                 </sheet>
             </form>
@@ -130,10 +146,11 @@
         <field name="name">gestion.stage.tree</field>
         <field name="model">gestion.stage</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree string="Stages">
                 <field name="name"/>
                 <field name="date_debut"/>
                 <field name="date_fin"/>
+                <field name="tutor"/>
             </tree>
         </field>
     </record>
@@ -145,9 +162,28 @@
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
+    <record id="action_stage_historique" model="ir.actions.act_window">
+        <field name="name">Historique des Stagiaires</field>
+        <field name="res_model">gestion.stage</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[('date_fin', '&lt;', context_today())]</field>
+        <field name="context">{}</field>
+    </record>
+
     <menuitem id="menu_stage_root" name="Gestion Stages" sequence ="1"/>
     <menuitem id="menu_stage" name="Stages" parent="menu_stage_root" action="action_stage"/>
-
+    <menuitem id="menu_stage_historique"
+        name="Historique"
+        parent="menu_stage_root"
+        action="action_stage_historique"/>
 
 
 </odoo>
+
+
+
+
+
+
+
+

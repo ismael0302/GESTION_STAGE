@@ -4,6 +4,7 @@ import string
 from datetime import datetime, date
 from odoo import api, fields, models, exceptions
 from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError
 
 
 class Stage(models.Model):
@@ -35,6 +36,9 @@ class Stage(models.Model):
     specialty = fields.Char(
         string="Spécialité / Formation",
         help="Domaine d'études ou spécialité du stagiaire")
+    
+    service_id = fields.Many2one('hr.department', string="Service")
+
     
     date_debut = fields.Date(string='Date de début')
     date_fin = fields.Date(string='Date de fin')
@@ -78,7 +82,8 @@ class Stage(models.Model):
         string="Journaux de bord")
     
     evaluation_ids = fields.One2many('gestion.evaluation', 'stage_id', string="Évaluations finales")
-    
+    grille_id = fields.One2many('gestion.grille', 'stage_id', string="Grille de notation")
+
     
     # action du boutons save  
     def action_sauvegarder_stage(self):
@@ -88,6 +93,12 @@ class Stage(models.Model):
             raise UserError("Le nom du stage est obligatoire.")
         # Tu peux aussi lancer d'autres actions ici si nécessaire
         return True
+    
+    # action genere l'attestaion de stage 
+    def print_attestation_stage(self):
+        if not self:
+            raise UserError("Aucun stage sélectionné.")
+        return self.env.ref('gestion_stage.action_attestation_stage_pdf').report_action(self)
 
 
 
