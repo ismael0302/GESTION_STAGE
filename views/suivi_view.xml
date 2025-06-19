@@ -6,12 +6,33 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <field name="date_suivi"/>
-                        <field name="commentaire"/>
-                        <field name="evaluation"/>
-                        <field name="stage_id"/>
+                    <group col ="4">
+                        <group colspan ="2">
+                            <field name="date_suivi"/>
+                            <field name="commentaire"/>
+                        </group>
+                        <group colspan = "2">
+                            <field name="evaluation"/>
+                            <field name="stage_id"/>
+                        </group>
                     </group>
+                    <notebook >
+                        <page string="Observation du tuteur">
+                            <group col ="4" string="Évaluation intermédiaire">
+                                <group colspan ="2">
+                                    <field name="ponctualite"/>
+                                <field name="consignes"/>
+                                <field name="qualite_travail"/>
+                                </group>
+                                
+                                <group colspan ="2">
+                                    <field name="autonomie"/>
+                                <field name="communication"/>
+                                <field name="note_globale"/>
+                                </group>           
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

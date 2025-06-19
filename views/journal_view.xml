@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_journal_form" model="ir.ui.view">
+        <field name="name">gestion.journal.form</field>
+        <field name="model">gestion.journal</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="lieu"/>
+                        <field name="temps_passe"/>
+                        <field name="activite"/>
+                        <field name="stage_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_journal_tree" model="ir.ui.view">
+        <field name="name">gestion.journal.tree</field>
+        <field name="model">gestion.journal</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="stage_id"/>
+                <field name="temps_passe"/>
+                <field name="lieu"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_journal" model="ir.actions.act_window">
+        <field name="name">Journal de Bord</field>
+        <field name="res_model">gestion.journal</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_journal" name="Journal de Bord" parent="menu_stage_root" action="action_journal"/>
+</odoo>
+

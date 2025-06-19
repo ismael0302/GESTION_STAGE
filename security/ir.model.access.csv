@@ -3,3 +3,6 @@ access_gestion_stage,access.gestion.stage,model_gestion_stage,,1,1,1,1
 access_gestion_planification,access.gestion.planification,model_gestion_planification,,1,1,1,1
 access_gestion_tache,access.gestion.tache,model_gestion_tache,,1,1,1,1
 access_gestion_suivi,access.gestion.suivi,model_gestion_suivi,,1,1,1,1
+access_gestion_journal,access.gestion.journal,model_gestion_journal,,1,1,1,1
+access_gestion_evaluation,access.gestion.evaluation,model_gestion_evaluation,,1,1,1,1
+access_gestion_grille,access.gestion.grille,model_gestion_grille,,1,1,1,1

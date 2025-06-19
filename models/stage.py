@@ -72,7 +72,13 @@ class Stage(models.Model):
     suivi_ids = fields.One2many(
         'gestion.suivi', 'stage_id', 
         string="Suivis")
-
+    
+    journal_ids = fields.One2many(
+        'gestion.journal', 'stage_id', 
+        string="Journaux de bord")
+    
+    evaluation_ids = fields.One2many('gestion.evaluation', 'stage_id', string="Évaluations finales")
+    
     
     # action du boutons save  
     def action_sauvegarder_stage(self):

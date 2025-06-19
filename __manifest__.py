@@ -23,6 +23,8 @@
         'views/planification_view.xml',
         'views/tache_view.xml',
         'views/suivi_view.xml',
+        'views/journal_view.xml',
+        'views/evaluation_view.xml',
     ],
 
 
