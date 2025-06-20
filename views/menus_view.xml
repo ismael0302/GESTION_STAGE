@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem 
+        id="menu_stage_root" 
+        name="Gestion Stages" 
+        sequence ="1"/>
+
+    <menuitem 
+        id="menu_stage"
+        name="Stages" 
+        parent="menu_stage_root" 
+        action="action_stage"/>
+
+    <menuitem 
+        id="menu_stagaire"
+        name="Stagaire" 
+        parent="menu_stage" 
+        action="action_stage"
+        sequence ="1"/>
+
+    
+    <menuitem 
+        id="menu_planification_root" 
+        name="Planifications" 
+        parent="menu_stage" 
+        action="action_planification"/>
+
+
+
+    <menuitem 
+        id="menu_suivi" 
+        name="Suivis de stage" 
+        parent="menu_stage_root" 
+        action="action_suivi"/>
+
+    <menuitem 
+        id="menu_tache" 
+        name="Tâches" 
+        parent="menu_suivi" 
+        action="action_tache"/>
+
+    <menuitem 
+        id="suivi_stagaire" 
+        name="Suivis de stage" 
+        parent="menu_suivi" 
+        action="action_suivi"
+        sequence ="1"/>
+
+    <menuitem 
+        id="menu_journal" 
+        name="Journal de Bord" 
+        parent="menu_suivi" 
+        action="action_journal"
+        sequence = "2"/>
+
+    <menuitem 
+        id="menu_evaluation" 
+        name="Évaluation" 
+        parent="menu_stage_root" 
+        action="action_evaluation"/>
+
+    <menuitem 
+        id="evaluation" 
+        name="Évaluation Finale" 
+        parent="menu_evaluation" 
+        action="action_evaluation"
+        sequence = "1"/>
+
+    <menuitem 
+        id="menu_grille" 
+        name="Grille de Notation" 
+        parent="menu_evaluation" 
+        action="action_grille"/>
+
+    <menuitem id="menu_stage_historique"
+            name="Historique"
+            parent="menu_stage_root"
+            action="action_stage_historique"/>
+</odoo>

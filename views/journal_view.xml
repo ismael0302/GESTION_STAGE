@@ -37,6 +37,5 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_journal" name="Journal de Bord" parent="menu_stage_root" action="action_journal"/>
 </odoo>
 

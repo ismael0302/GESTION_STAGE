@@ -38,6 +38,5 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_evaluation" name="Évaluation Finale" parent="menu_stage_root" action="action_evaluation"/>
 </odoo>
 

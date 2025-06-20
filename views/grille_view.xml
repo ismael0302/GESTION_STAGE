@@ -43,5 +43,4 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_grille" name="Grille de Notation" parent="menu_stage_root" action="action_grille"/>
 </odoo>

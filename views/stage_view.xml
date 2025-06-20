@@ -170,20 +170,5 @@ s
         <field name="context">{}</field>
     </record>
 
-    <menuitem id="menu_stage_root" name="Gestion Stages" sequence ="1"/>
-    <menuitem id="menu_stage" name="Stages" parent="menu_stage_root" action="action_stage"/>
-    <menuitem id="menu_stage_historique"
-        name="Historique"
-        parent="menu_stage_root"
-        action="action_stage_historique"/>
-
-
 </odoo>
-
-
-
-
-
-
-
 

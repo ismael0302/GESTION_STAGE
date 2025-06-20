@@ -52,6 +52,5 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_planification_root" name="Planifications" parent="menu_stage_root" action="action_planification"/>
 </odoo>
 

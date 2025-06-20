@@ -56,6 +56,5 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_suivi" name="Suivis de stage" parent="menu_stage_root" action="action_suivi"/>
 </odoo>
 
