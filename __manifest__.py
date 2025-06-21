@@ -27,13 +27,14 @@
         'views/journal_view.xml',
         'views/evaluation_view.xml',
         'views/grille_view.xml',
-        'report/attestation_template.xml',
-        'report/report.xml',
-        #'views/stage_dashboard_view.xml',
+        'views/attestation_template.xml',
+        'report/reports.xml',
+        
     ],
     
     'qweb': [
         #'views/stage_dashboard_template.xml',
+        #'views/stage_dashboard_view.xml',
     ],
 
 

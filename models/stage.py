@@ -60,6 +60,7 @@ class Stage(models.Model):
         string="Tuteur en entreprise",
         help="Employé de l'entreprise qui encadre le stagiaire")
     
+    
     planification_ids = fields.One2many(
         'gestion.planification', 
         'stage_id', 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="attestation_stage_template">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h1 style="text-align: center;"> AFREETECH CAMEROON</h1>
+
+                    <h2 style="text-align: center;">ATTESTATION DE FIN DE STAGE</h2>
+                    <p>Nous soussignes, <b>DOMINIQUE TOUNA MAMA</b>, </p>
+                    <p>Nous soussignes, Directeur general<b>d'AFREETECH CAMEROON SARL</b>, attestons que :</p>
+                    <p><strong>Nom du stagiaire Monsieur : <t t-esc="doc.name"/> </strong> </p>
+                    <p>A effectuer un stage de deux (2) mois en developpement ODOOD AU sein de l'entreprise  </p>
+                    
+                    <p>Service : <t t-esc="doc.service_id.name"/></p>
+                    <p><strong>Periode :</strong> du <t t-esc="doc.date_debut"/> au <t t-esc="doc.date_fin"/></p>
+                    <p><strong>Tuteur :</strong> <t t-esc="doc.tutor.name"/></p>
+                    <p><strong>Lieu :</strong> Yaounde</p>
+
+                    <p>En foi de quoi, la presente attestation lui est delivree pour servir rt valoir 
+                    ce que de droit </p>
+                    <br/><br/>
+                    <p>Fait à e, le <t t-esc="doc.date_fin"/>.</p>
+                    <p><i>Signature de la direction</i></p>
+                    <p><b>DOMINIQUE TOUNA MAMA</b></p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
+
