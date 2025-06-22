@@ -13,10 +13,10 @@
                     type="object" 
                     string="Enregistrer" 
                     class="btn-primary"/> 
-                <button name="print_attestation_stage" 
+                <!-- <button name="print_attestation_stage" 
                 type="object" 
                 string="Imprimer Attestation" 
-                class="btn-primary"/>
+                class="btn-primary"/> -->
                 <field 
                         name="state" 
                         widget="statusbar"
@@ -40,6 +40,39 @@
                             <field name="date_fin"/>
                         </group>
                     </group>
+                    <group class="o_form_buttons d-flex gap-4">
+                        <field name="state" readonly="1"/>
+                        <button 
+                            name="action_accepter"
+                            type="object" 
+                            string="Accepter" 
+                            class="btn btn-primary"
+                            visibility="['pending']"/>
+                        <button 
+                            name="action_valider" 
+                            type="object" 
+                            string="Valider" 
+                            class="btn btn-success"
+                            visibility="['accepted']"/>
+                        <button 
+                            name="action_terminer" 
+                            type="object" 
+                            string="Terminer" 
+                            class="btn btn-success"
+                            visibility="['in_progress']"/>
+                        <button 
+                            name="action_rejeter" 
+                            type="object" 
+                            string="Rejeter" 
+                            class="btn btn-secondary"
+                            visibility="['pending']"/>
+                        <button 
+                            name="action_annuler"
+                            type="object" 
+                            string="Annuler"
+                            class="btn btn-danger"
+                            visibility="['pending', 'accepted', 'in_progress']"/>
+                    </group>
                     <notebook>
                         <page string="Planifications">
                             <field name="planification_ids">
@@ -58,7 +91,7 @@
                                         <field name="name"/>
                                         <field name="date_debut"/>
                                         <field name="date_fin"/>
-                                        <field name="state"/>
+                                        
                                     </tree>
                                 </field>
                             </page>
@@ -108,8 +141,10 @@
                                     </tree>
                                 </field>
                             </page>
-s
                     </notebook>
+                    <footer>
+                        
+                    </footer>
                 </sheet>
             </form>
         </field>

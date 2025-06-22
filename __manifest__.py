@@ -29,15 +29,25 @@
         'views/grille_view.xml',
         'views/attestation_template.xml',
         'report/reports.xml',
+        'views/stage_dashboard_view.xml',
+        'views/stage_dashboard_template.xml',
+        'views/stage_graph_views.xml',
+        'views/service_views.xml',
         
     ],
-    
     'qweb': [
-        #'views/stage_dashboard_template.xml',
-        #'views/stage_dashboard_view.xml',
+        'views/stage_dashboard_template.xml',
     ],
+
+    'assets': {
+        'web.assets_backend': [
+            'gestion_stage/static/src/js/stage_dashboard.js',
+            'gestion_stage/static/src/xml/stage_dashboard_template.xml',
+            ],
+        },
 
 
     'installable': True,
     'application': True,
+    'license': 'LGPL-3'
 }

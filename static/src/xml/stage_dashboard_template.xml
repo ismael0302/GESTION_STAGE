@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="gestion_stage.stage_dashboard">
+        <div class="o_content">
+        <h2 style="text-align: center;" >Tableau de bord des stages</h2>
+        <p>Bienvenue dans le tableau de bord</p>
+        </div>
+    </t>
+</templates>

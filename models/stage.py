@@ -37,8 +37,7 @@ class Stage(models.Model):
         string="Spécialité / Formation",
         help="Domaine d'études ou spécialité du stagiaire")
     
-    service_id = fields.Many2one('hr.department', string="Service")
-
+    service_id = fields.Many2one('gestion.service', string="Service")
     
     date_debut = fields.Date(string='Date de début')
     date_fin = fields.Date(string='Date de fin')
@@ -54,6 +53,25 @@ class Stage(models.Model):
             default='pending',
             tracking=True, required=True,
             help="Statut actuel du processus de stage") 
+    def action_accepter(self):
+        for record in self:
+            record.state = 'accepted'
+
+    def action_rejeter(self):
+        for record in self:
+            record.state = 'rejected'
+
+    def action_valider(self):
+        for record in self:
+            record.state = 'in_progress'
+
+    def action_terminer(self):
+        for record in self:
+            record.state = 'completed'
+
+    def action_annuler(self):
+        for record in self:
+            record.state = 'canceled'
 
     tutor = fields.Many2one(
         'hr.employee',
@@ -100,7 +118,3 @@ class Stage(models.Model):
         if not self:
             raise UserError("Aucun stage sélectionné.")
         return self.env.ref('gestion_stage.action_attestation_stage_pdf').report_action(self)
-
-
-
-

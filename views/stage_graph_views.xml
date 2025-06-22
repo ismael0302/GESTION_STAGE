@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_gestion_stage_graph" model="ir.ui.view">
+        <field name="name">gestion.stage.graph</field>
+        <field name="model">gestion.stage</field>
+        <field name="arch" type="xml">
+        <graph string="Répartition des stagiaires par service" type="bar">
+            <field name="service_id"/>
+            <field name="id" type="measure"/>
+        </graph>
+        </field>
+    </record>
+
+    <!-- Lien dans l'action de la vue -->
+    <record id="action_gestion_stage_graph" model="ir.actions.act_window">
+        <field name="name">Répartition par service</field>
+        <field name="res_model">gestion.stage</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_gestion_stage_graph"/>
+        <field name="help" type="html">
+        <p>Ce graphique montre la répartition des stagiaires selon leur service.</p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+
+</odoo>

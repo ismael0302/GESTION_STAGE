@@ -77,4 +77,22 @@
             name="Historique"
             parent="menu_stage_root"
             action="action_stage_historique"/>
+    
+    <menuitem 
+        id="menu_stage_dashboard" 
+        name="Tableau de bord"
+        parent="menu_stage_root" 
+        action="action_stage_dashboard"/>
+
+    <menuitem 
+        id="menu_gestion_service"
+        name="Services"
+        parent="menu_stage_root" 
+        />
+
+    <menuitem 
+        id="menu_stage_graph"
+        name="Répartition par service"
+        parent="menu_gestion_service"
+        action="action_gestion_stage_graph"/>
 </odoo>
