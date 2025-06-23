@@ -12,11 +12,15 @@
                     name="action_sauvegarder_stage" 
                     type="object" 
                     string="Enregistrer" 
-                    class="btn-primary"/> 
-                <!-- <button name="print_attestation_stage" 
-                type="object" 
-                string="Imprimer Attestation" 
-                class="btn-primary"/> -->
+                    class="btn-primary"
+                    groups="base.group_system"
+                    /> 
+                <!-- <button 
+                    name="print_attestation_stage" 
+                    type="object" 
+                    string="Imprimer Attestation" 
+                    class="btn-primary"
+                    visibility="['completed']"/> -->
                 <field 
                         name="state" 
                         widget="statusbar"
@@ -38,6 +42,7 @@
                             <field name="specialty"/>
                             <field name="date_debut"/>
                             <field name="date_fin"/>
+                            <field name="service_id"></field>
                         </group>
                     </group>
                     <group class="o_form_buttons d-flex gap-4">
@@ -47,31 +52,36 @@
                             type="object" 
                             string="Accepter" 
                             class="btn btn-primary"
-                            visibility="['pending']"/>
+                            visibility="['pending']"
+                            groups="base.group_system"/>
                         <button 
                             name="action_valider" 
                             type="object" 
                             string="Valider" 
                             class="btn btn-success"
-                            visibility="['accepted']"/>
+                            visibility="['accepted']"
+                            groups="base.group_system"/>
                         <button 
                             name="action_terminer" 
                             type="object" 
                             string="Terminer" 
                             class="btn btn-success"
-                            visibility="['in_progress']"/>
+                            visibility="['in_progress']"
+                            groups="base.group_system"/>
                         <button 
                             name="action_rejeter" 
                             type="object" 
                             string="Rejeter" 
                             class="btn btn-secondary"
-                            visibility="['pending']"/>
+                            visibility="['pending']"
+                            groups="base.group_system"/>
                         <button 
                             name="action_annuler"
                             type="object" 
                             string="Annuler"
                             class="btn btn-danger"
-                            visibility="['pending', 'accepted', 'in_progress']"/>
+                            visibility="['pending', 'accepted', 'in_progress']"
+                            groups="base.group_system"/>
                     </group>
                     <notebook>
                         <page string="Planifications">
@@ -163,11 +173,13 @@
 
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_card">
-                            <strong><field name="name"/></strong><br/>
-                            <span><b>Début :</b> <field name="date_debut"/></span><br/>
-                            <span><b>Fin :</b> <field name="date_fin"/></span>
-                            <span><b>Fin :</b> <field name="state"/></span>
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_card">
+                                <strong><field name="name"/></strong><br/>
+                                <span><b>Début :</b> <field name="date_debut"/></span><br/>
+                                <span><b>Fin :</b> <field name="date_fin"/></span>
+                                <span><b>Fin :</b> <field name="state"/></span>
+                            </div>
                         </div>
                     </t>
                 </templates>
@@ -181,11 +193,13 @@
         <field name="name">gestion.stage.tree</field>
         <field name="model">gestion.stage</field>
         <field name="arch" type="xml">
-            <tree string="Stages">
+            <tree string="Stages" editable="bottom" create="false" delete="false" >
                 <field name="name"/>
                 <field name="date_debut"/>
                 <field name="date_fin"/>
                 <field name="tutor"/>
+                <field name="service_id"></field>
+
             </tree>
         </field>
     </record>
@@ -195,6 +209,7 @@
         <field name="name">Stages</field>
         <field name="res_model">gestion.stage</field>
         <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'group_by': 'state'}</field>
     </record>
 
     <record id="action_stage_historique" model="ir.actions.act_window">
@@ -202,7 +217,9 @@
         <field name="res_model">gestion.stage</field>
         <field name="view_mode">tree</field>
         <field name="domain">[('date_fin', '&lt;', context_today())]</field>
+        <field name="domain">[('state', '=', 'completed')]</field>
         <field name="context">{}</field>
+        
     </record>
 
 </odoo>

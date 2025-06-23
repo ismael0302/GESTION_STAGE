@@ -20,12 +20,22 @@
                     <p>En foi de quoi, la presente attestation lui est delivree pour servir rt valoir 
                     ce que de droit </p>
                     <br/><br/>
-                    <p>Fait à e, le <t t-esc="doc.date_fin"/>.</p>
+                    <p>Fait à [Ville], le <t t-esc="time.strftime('%d/%m/%Y')"/></p>
                     <p><i>Signature de la direction</i></p>
                     <p><b>DOMINIQUE TOUNA MAMA</b></p>
                 </div>
             </t>
         </t>
     </template>
+
+    <report
+        id="action_report_attestation_stage"
+        model="gestion.stage"
+        string="Attestation de Stage"
+        report_type="qweb-pdf"
+        name="module_name.report_attestation_stage"
+        file="module_name.report_attestation_stage"
+        print_report_name="'Attestation_Stage_%s' % (object.name)"
+    />
 </odoo>
 

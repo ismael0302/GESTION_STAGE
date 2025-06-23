@@ -18,6 +18,8 @@
     'depends': ['base','hr','mail'],
     
     'data': [
+        'security/groups.xml',
+        'security/ir_rule.xml',
         'security/ir.model.access.csv',
         'views/stage_view.xml',
         'views/menus_view.xml',
@@ -31,8 +33,9 @@
         'report/reports.xml',
         'views/stage_dashboard_view.xml',
         'views/stage_dashboard_template.xml',
-        'views/stage_graph_views.xml',
         'views/service_views.xml',
+        'views/stage_graph_views.xml',
+        
         
     ],
     'qweb': [

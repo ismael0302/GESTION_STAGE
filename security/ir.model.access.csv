@@ -6,3 +6,5 @@ access_gestion_suivi,access.gestion.suivi,model_gestion_suivi,,1,1,1,1
 access_gestion_journal,access.gestion.journal,model_gestion_journal,,1,1,1,1
 access_gestion_evaluation,access.gestion.evaluation,model_gestion_evaluation,,1,1,1,1
 access_gestion_grille,access.gestion.grille,model_gestion_grille,,1,1,1,1
+access_gestion_service,access_gestion_service,model_gestion_service,,1,1,1,1
+access_gestion_stage_tutor,access.gestion.stage.tutor,model_gestion_stage,gestion_stage.group_tutor,1,1,0,0

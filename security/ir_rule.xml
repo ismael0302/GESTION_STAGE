@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_stage_tutor_only" model="ir.rule">
+        <field name="name">tutor: Accès à ses stagiaires</field>
+        <field name="model_id" ref="model_gestion_stage"/>
+        <field name="domain_force">[('tutor.user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('gestion_stage.group_tutor'))]"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+</odoo>
