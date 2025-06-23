@@ -34,7 +34,7 @@
                             <field name="contact"/>
                             <field name="cv"/>
                             <field name="cv_filename"></field>
-                            <field name="tutor"></field>
+                            <field name="tutor_id"></field>
                         </group>
 
                         <group colspan = "2">
@@ -197,7 +197,7 @@
                 <field name="name"/>
                 <field name="date_debut"/>
                 <field name="date_fin"/>
-                <field name="tutor"/>
+                <field name="tutor_id"/>
                 <field name="service_id"></field>
 
             </tree>

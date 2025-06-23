@@ -2,25 +2,69 @@
 <odoo>
     <template id="template_stage_dashboard" name="Tableau de bord des stages">
         <t t-call="web.layout">
-            <div class="oe_structure">
-                <div class="container mt-4">
-                    <h2>📊 Tableau de bord des stages</h2>
-                    <div class="row">
-                        <div class="col-sm-3"><div class="alert alert-info">Total stages : <strong><t t-esc="total"/></strong></div></div>
-                        <div class="col-sm-3"><div class="alert alert-warning">En attente : <strong><t t-esc="en_attente"/></strong></div></div>
-                        <div class="col-sm-3"><div class="alert alert-success">Acceptés : <strong><t t-esc="accepte"/></strong></div></div>
-                        <div class="col-sm-3"><div class="alert alert-danger">Rejetés : <strong><t t-esc="rejete"/></strong></div></div>
-                    </div>
-
-                    <h4 class="mt-4">🧑‍🏫 Stages par tuteur</h4>
-                    <ul>
-                        <t t-foreach="stages_par_tutor" t-as="ligne">
-                            <li>
-                                <t t-esc="ligne['tutor'][1]"/> : <strong><t t-esc="ligne['__count']"/></strong> stage(s)
-                            </li>
-                        </t>
-                    </ul>
+            <div class="oe_structure container">
+                <h2>📊 Tableau de bord des stages</h2>
+                <div class="row">
+                    <div class="col-sm-3"><div class="alert alert-info">Total : <strong><t t-esc="total"/></strong></div></div>
+                    <div class="col-sm-3"><div class="alert alert-warning">En attente : <strong><t t-esc="en_attente"/></strong></div></div>
+                    <div class="col-sm-3"><div class="alert alert-success">Acceptés : <strong><t t-esc="accepte"/></strong></div></div>
+                    <div class="col-sm-3"><div class="alert alert-danger">Rejetés : <strong><t t-esc="rejete"/></strong></div></div>
                 </div>
+
+                <h4 class="mt-4">🧑‍🏫 Répartition par tutor</h4>
+                <ul>
+                    <t t-foreach="stages_par_tutor" t-as="ligne">
+                        <li><t t-esc="ligne['tutor_id'][1]"/> : <strong><t t-esc="ligne['__count']"/></strong> stage(s)</li>
+                    </t>
+                </ul>
+
+                <h4 class="mt-4">📋 Liste complète des stages</h4>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Stagiaire</th>
+                            <th>Service</th>
+                            <th>tutor</th>
+                            <th>Période</th>
+                            <th>Suivi</th>
+                            <th>Journal</th>
+                            <th>Tâches</th>
+                            <th>Évaluation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="stages" t-as="stage">
+                            <tr>
+                                <td><t t-esc="stage.name"/></td>
+                                <td><t t-esc="stage.service_id.name if stage.service_id else ''"/></td>
+                                <td><t t-esc="stage.tutor_id.name if stage.tutor_id else ''"/></td>
+                                <td><t t-esc="stage.date_debut or ''"/> - <t t-esc="stage.date_fin or ''"/></td>
+                                <td>
+                                    <ul>
+                                        <t t-foreach="stage.suivi_ids" t-as="suivi">
+                                            <li><t t-esc="suivi.description"/></li>
+                                        </t>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <t t-foreach="stage.journal_ids" t-as="journal">
+                                            <li><t t-esc="journal.contenu"/></li>
+                                        </t>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <t t-foreach="stage.tache_ids" t-as="tache">
+                                            <li><t t-esc="tache.name"/></li>
+                                        </t>
+                                    </ul>
+                                </td>
+                                <td><t t-esc="stage.evaluation_finale or 'N/A'"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
             </div>
         </t>
     </template>
